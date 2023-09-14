@@ -215,19 +215,14 @@ async fn main() -> Result<()> {
                     t = RType::Retry;
                 }
                 RType::Retry => {
-                
+                    let response: Response = serde_json::from_str(get_only_data(&res))?;
 
                 }    
             }
         }
-       
-
     }
-    
-
-    
 }
-
+//test
 
 fn print_type_of<T>(_: &T) {
     println!("{}", std::any::type_name::<T>())
