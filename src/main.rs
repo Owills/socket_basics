@@ -1,13 +1,10 @@
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
-use serde_json::Value;
+
 use serde::{Deserialize, Serialize};
 use serde_json::{Result};
 use std::env;
 use std::fs;
-use std::sync::Arc;
 use tokio::net::TcpStream;
-use futures::executor::block_on;
-use tokio_native_tls::{ TlsConnector };
 
 
 
@@ -170,9 +167,9 @@ async fn main() -> Result<()> {
 
 
 fn nextguess<'a>(wordlist : &String, response: &'a Response) -> String {
-    let mut word = "zzzzz";
+    let word = "zzzzz";
 
-    let mut char_vec: Vec<char> = word.chars().collect();
+    let char_vec: Vec<char> = word.chars().collect();
     let alphabet = vec!["a", "b", "c", "d", "e", "f", "g", "h" , "i", "j", "k", "l" , "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"  ];
     
 
@@ -203,10 +200,6 @@ fn nextguess<'a>(wordlist : &String, response: &'a Response) -> String {
     return word;
 }
 
-
-fn print_type_of<T>(_: &T) {
-    println!("{}", std::any::type_name::<T>())
-}
 
 // used to determine what type of response to send back to the server
 #[derive(PartialEq)]
