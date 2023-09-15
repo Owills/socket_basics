@@ -1,3 +1,5 @@
+extern crate tokio;
+
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 
 use serde::{Deserialize, Serialize};
