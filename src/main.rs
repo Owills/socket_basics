@@ -1,4 +1,3 @@
-extern crate tokio;
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use serde_json::Value;
 use serde::{Deserialize, Serialize};
@@ -20,7 +19,7 @@ async fn main() -> Result<()> {
     let mut tcp = true;
     let mut port = "27993";
     let mut ip = "proj1.3700.network";
-    let mut nu = "o.maker";
+    let mut nu = "marker.o";
     //comand line arguments
     let args: Vec<String> = env::args().collect();
     
